@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anca-kirner/www.roadmap-js.git"
+    "url": "git+https://github.com/AncaKirner-Projects/www.roadmap-js.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/anca-kirner/www.roadmap-js/issues"
+    "url": " https://github.com/AncaKirner-Projects/www.roadmap-js/issues"
   },
-  "homepage": "https://github.com/anca-kirner/www.roadmap-js#readme"
+  "homepage": " https://github.com/AncaKirner-Projects/www.roadmap-js#readme"
 }
