@@ -1,3 +1,5 @@
+import { addProduct } from '../helpers/products';
+
 export const addCategoryOptions = (elemId, categories) => {
   const element = document.getElementById(elemId);
 
@@ -15,6 +17,7 @@ export const addProductBtnEvt = () => {
   addProductBtn.addEventListener('click', () => {
     modal.style.display = 'flex';
   });
+
 
   const modalContent = document.getElementById('model-content');
   const form = document.createElement('form');
@@ -39,6 +42,7 @@ export const addProductBtnEvt = () => {
   const btn = document.createElement('button');
   const closeBtn = document.createElement('button');
 
+  form.id = 'add-product-form';
   modalTitle.innerHTML = 'Add Product';
   modalTitle.className = 'modalTitle';
   modalForm.className = 'form-container';
@@ -48,6 +52,12 @@ export const addProductBtnEvt = () => {
   description.type = 'text';
   price.type = 'text';
   productsNo.type = 'text';
+
+  category.name = 'category';
+  name.name = 'name';
+  description.name = 'description';
+  price.name = 'price';
+  productsNo.name = 'totalProducts';
 
   option.value = 0;
   option.innerHTML = '- Please select -';
@@ -62,6 +72,31 @@ export const addProductBtnEvt = () => {
   btn.type = 'submit';
   btn.innerHTML = 'Create';
   btn.className = 'cardButton';
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const myForm = document.getElementById('add-product-form');
+    const formData = new FormData(myForm);
+    const product = {
+      category_id: parseInt(formData.get('category'), 0),
+      prod_name: formData.get('name'),
+      prod_description: formData.get('description'),
+      price: parseFloat(formData.get('price')).toFixed(2),
+      prod_number: parseInt(formData.get('totalProducts'), 0)
+    };
+
+    try {
+      const resp = addProduct(product);
+      console.log(resp);
+      alert('The product was added into database');
+      location.reload(true);
+    } catch (err) {
+      console.log(err);
+      alert('The product was not added into database');
+    }
+
+    // modal.style.display = 'none';
+  });
 
   closeBtn.className = 'modalDivButton';
   closeBtn.type = 'button';
