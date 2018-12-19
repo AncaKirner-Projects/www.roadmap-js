@@ -1,44 +1,22 @@
+import 'babel-polyfill';
 import { getAllCategories } from './helpers/categories';
+import { getAllProducts } from './helpers/products';
+import { createCategories } from './pages/createCheckboxes';
+import { createProductList } from './pages/createProductCards';
+import { addCategoryOptions, addProductBtnEvt } from './pages/addProductModal';
+let categories;
 
-const addCheckbox = (category) => {
-  let label = document.createElement('label');
-  let labelText = document.createTextNode(category.category_name);
-  let checkbox = document.createElement('input');
-  let span = document.createElement('span');
+(async () => {
+  try {
+    categories = await getAllCategories();
+    createCategories(categories);
+    await addProductBtnEvt();
+    await addCategoryOptions('category-select', categories);
 
-  label.classList.add("container");
-  label.classList.add("labelText");
-
-  checkbox.id = category.id;
-  checkbox.type = "checkbox";
-  checkbox.value = category.category_name;
-  checkbox.name = "categories[]";
-  checkbox.addEventListener('change', () => {
-    console.log(checkbox, checkbox.checked);
-  });
-
-  span.classList.add("checkmark");
-
-  label.appendChild(labelText);
-  label.appendChild(checkbox);
-  label.appendChild(span);
-
-  return label;
-}
-
-const createCategories = (categories) => {
-  let div = document.getElementById('categories');
-
-  categories.forEach((categ) => {
-    let checkbox = addCheckbox(categ);
-    div.appendChild(checkbox);
-  });
-}
-
-let categories = getAllCategories()
-  .then((res) => {
-    createCategories(res);
-  })
-  .catch((err) => {
+    const products = await getAllProducts();
+    createProductList(products);
+  } catch (err) {
     console.log('***', err);
-  });
+  }
+
+})();

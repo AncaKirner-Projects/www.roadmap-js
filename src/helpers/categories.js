@@ -1,7 +1,12 @@
-export const getAllCategories = () => {
-  return fetch('http://localhost:8000/categories')
-    .then(res => res.json())
-    .then((data) => {
-      return data;
-    })
+export const getAllCategories = async () => {
+  console.log('in fetch categ');
+  let categories;
+  try {
+    const response = await fetch('http://localhost:8000/categories');
+    categories = await response.json();
+  } catch (err) {
+    throw new Error(err);
+  }
+
+  return categories;
 }

@@ -1,0 +1,86 @@
+.modal {
+  display: none;
+  position: fixed; /* Stay in place */
+  z-index: 1300; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  opacity: 1;
+  will-change: opacity;
+  transition: opacity 225ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  height: 100%;
+  outline: none;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  max-width: 600px;
+  flex: 0 1 auto;
+  max-height: calc(100% - 96px);
+  margin: 48px;
+  display: flex;
+  position: relative;
+  overflow-y: auto;
+  flex-direction: column;
+  box-shadow: 0px 11px 15px -7px rgba(0, 0, 0, 0.2), 0px 24px 38px 3px rgba(0, 0, 0, 0.14), 0px 9px 46px 8px rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  background-color: #fff;
+}
+.modalTitle{
+  color: rgba(0, 0, 0, 0.87);
+  font-size: 1.3125rem;
+  font-weight: 500;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  line-height: 1.16667em;
+  margin: 0;
+  display: block;
+  padding-bottom: 20px;
+}
+.modalDivButton{
+  display:flex;
+  box-sizing: border-box;
+  float: right;
+}
+.close-btn{
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.form-container{
+  max-width: 400px;
+  padding: 10px;
+  background-color: white;
+}
+.form-container label{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 17px;
+}
+.form-container input[type=text], select{
+  width: 90%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+.form-container select{
+  width: 97%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 15px;
+}
+
