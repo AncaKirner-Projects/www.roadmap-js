@@ -4,24 +4,30 @@
 <head>
   <title>Shopping-app</title>
   <link rel="stylesheet" type="text/css" href="src/styles/appStyles.css" />
+  <link rel="stylesheet" type="text/css" href="src/styles/checkboxStyle.css" />
+  <link rel="stylesheet" type="text/css" href="src/styles/cardStyles.css" />
+  <link rel="stylesheet" type="text/css" href="src/styles/modalStyles.css" />
 </head>
 
 <body>
-  <div id="root">
-    <header>
-      <div id="link-buttons">
-        <img src="src/images/playlist_add.svg" alt="" />
-        <img src="src/images/shopping_cart.svg" alt="" />
+  <header>
+    <div id="link-buttons">
+      <img id="add-product" src="src/images/playlist_add.svg" alt="" />
+      <img id="view-cart" src="src/images/shopping_cart.svg" alt="" />
+    </div>
+  </header>
+  <main>
+    <div id="side-bar">
+      <a class="menu-links">Categories</a>
+      <div id="categories"></div>
+    </div>
+    <div id="content"></div>
+    <div id="myModal" class="modal">
+      <div id="model-content" class="modal-content">
+
       </div>
-    </header>
-    <main>
-      <div id="side-bar">
-        <a class="menu-links">Categories</a>
-      </div>
-      <div id="content">
-      </div>
-      <div class="clear">
-    </main>
+    </div>
+  </main>
   </div>
   <script src="./src/index.js"></script>
 </body>

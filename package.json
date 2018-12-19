@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/anca-kirner/www.roadmap-js/issues"
   },
-  "homepage": "https://github.com/anca-kirner/www.roadmap-js#readme"
+  "homepage": "https://github.com/anca-kirner/www.roadmap-js#readme",
+  "dependencies": {
+    "babel-polyfill": "^6.26.0"
+  }
 }
