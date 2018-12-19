@@ -9,8 +9,8 @@ import { addCategoryOptions, addProductBtnEvt } from './pages/addProductModal';
   try {
     const categories = await getAllCategories();
     createCategories(categories);
-    await addProductBtnEvt();
-    await addCategoryOptions('category-select', categories);
+    addProductBtnEvt();
+    addCategoryOptions('category-select', categories);
 
     const products = await getAllProducts();
     createProductList(products);
