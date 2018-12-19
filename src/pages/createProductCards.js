@@ -33,10 +33,9 @@ const addCard = (product) => {
 }
 
 export const createProductList = (products) => {
-  console.log('in create cards');
   const div = document.getElementById('content');
   const uniqueProd = products.slice(0, 4);
-  // console.log(products);
+
   uniqueProd.forEach((product, index) => {
     console.log(product, index);
     const card = addCard(product);

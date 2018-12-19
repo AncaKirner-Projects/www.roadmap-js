@@ -1,5 +1,4 @@
 export const addCategoryOptions = (elemId, categories) => {
-  console.log('in add option');
   const element = document.getElementById(elemId);
 
   categories.forEach(elem => {
@@ -11,7 +10,6 @@ export const addCategoryOptions = (elemId, categories) => {
 };
 
 export const addProductBtnEvt = () => {
-  console.log('in create event');
   const modal = document.getElementById('myModal');
   const addProductBtn = document.getElementById('add-product');
   addProductBtn.addEventListener('click', () => {
