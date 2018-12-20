@@ -25,7 +25,6 @@ const addCheckbox = (category) => {
 }
 
 export const createCategories = (categories) => {
-  console.log('in create categ');
   const div = document.getElementById('categories');
 
   categories.forEach((categ) => {
