@@ -1,3 +1,5 @@
+import { addToCart } from '../helpers/cart';
+
 const addCard = (product) => {
   const container = document.createElement('div');
   const titleLink = document.createElement('a');
@@ -16,11 +18,13 @@ const addCard = (product) => {
   price.innerHTML = `${product.price} RON`;
   price.className = 'priceLabel';
   button.type = 'button';
-  button.type = 'button';
   button.className = 'cardButton';
   buttonName.innerHTML = 'ADD TO CART';
   buttonDiv.className = 'cardDivButton';
-
+  // localStorage.removeItem('state');
+  button.addEventListener('click', (e) => {
+    addToCart(product);
+  });
 
   button.appendChild(buttonName);
   buttonDiv.appendChild(button);

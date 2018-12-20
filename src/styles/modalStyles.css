@@ -24,7 +24,7 @@
   margin: 15% auto; /* 15% from the top and centered */
   padding: 20px;
   border: 1px solid #888;
-  max-width: 600px;
+  max-width: 1200px;
   flex: 0 1 auto;
   max-height: calc(100% - 96px);
   margin: 48px;
@@ -66,21 +66,42 @@
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 17px;
 }
-.form-container input[type=text], select{
+.form-container input[type=text], .valid{
   width: 90%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 5px 0;
   border: none;
   background: #f1f1f1;
 }
-
 .form-container select{
   width: 97%;
   padding: 15px;
-  margin: 5px 0 22px 0;
+  margin: 5px 0 5px 0;
   border: none;
   background: #f1f1f1;
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
   font-size: 15px;
 }
-
+input:invalid, .invalid {
+  box-shadow: 0 0 5px 1px red;
+  margin-bottom: 0px;
+}
+.error {
+  padding-left: 10px;
+  top: 0px;
+  color: red;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-size: 13px;
+  border-radius: 0 0 5px 5px;
+ 
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.error-span{
+  display:block;
+  height: 25px;
+}
+.closeUpButton{
+  margin-top: 15px;;
+  box-sizing: border-box;
+}
