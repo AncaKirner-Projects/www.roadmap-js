@@ -1,3 +1,5 @@
+import { displayProductsByCategories } from './createProductCards';
+
 const addCheckbox = (category) => {
   const label = document.createElement('label');
   const labelText = document.createTextNode(category.category_name);
@@ -12,7 +14,16 @@ const addCheckbox = (category) => {
   checkbox.value = category.category_name;
   checkbox.name = "categories[]";
   checkbox.addEventListener('change', () => {
-    console.log(checkbox, checkbox.checked);
+    const categs = document.getElementsByName('categories[]');
+    const selectedIds = [];
+
+    for (let i = 0; i < categs.length; i++) {
+      if (categs[i].checked) {
+        selectedIds.push(Number.parseInt(categs[i].id, 10));
+      }
+    }
+
+    displayProductsByCategories(selectedIds);
   });
 
   span.classList.add("checkmark");
@@ -24,7 +35,7 @@ const addCheckbox = (category) => {
   return label;
 }
 
-export const createCategories = (categories) => {
+export const createCategories = (categories, products) => {
   const div = document.getElementById('categories');
 
   categories.forEach((categ) => {

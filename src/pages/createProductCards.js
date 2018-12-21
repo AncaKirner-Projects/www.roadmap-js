@@ -1,4 +1,5 @@
 import { addToCart } from '../helpers/cart';
+import { getAllProductsFromCategories } from '../helpers/products';
 
 const addCard = (product) => {
   const container = document.createElement('div');
@@ -13,6 +14,11 @@ const addCard = (product) => {
   titleLink.innerHTML = product.prod_name;
   titleLink.className = 'titleCard';
   titleLink.href = `/products/${product.id}`;
+  titleLink.addEventListener('click', (e) => {
+    e.preventDefault();
+
+  });
+
   description.innerHTML = product.prod_description;
   description.className = 'descriptionCard';
   price.innerHTML = `${product.price} RON`;
@@ -38,11 +44,16 @@ const addCard = (product) => {
 
 export const createProductList = (products) => {
   const div = document.getElementById('content');
-  const uniqueProd = products.slice(0, 4);
 
-  uniqueProd.forEach((product, index) => {
+  div.innerHTML = '';
+  products.forEach((product, index) => {
     console.log(product, index);
     const card = addCard(product);
     div.appendChild(card);
   });
+}
+
+export const displayProductsByCategories = async (selectedIds) => {
+  const resp = await getAllProductsFromCategories(selectedIds);
+  createProductList(resp);
 }

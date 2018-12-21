@@ -8,13 +8,13 @@ import { viewCartBtnEvt } from './pages/createCartModal';
 
 (async () => {
   try {
-    const categories = await getAllCategories();
-    createCategories(categories);
-    addProductBtnEvt();
-    addCategoryOptions('category-select', categories);
-
     const products = await getAllProducts();
     createProductList(products);
+
+    const categories = await getAllCategories();
+    createCategories(categories, products);
+    addProductBtnEvt();
+    addCategoryOptions('category-select', categories);
   } catch (err) {
     console.log('***', err);
   }
